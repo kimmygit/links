@@ -278,6 +278,30 @@ body {
   object-fit: cover;
 }
 
+/* Section Divider */
+.section-divider {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.section-divider span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  white-space: nowrap;
+}
+
 /* Text Card (현대백화점) - 이미지 없는 카드 */
 .card-text {
   flex-direction: row;
