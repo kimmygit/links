@@ -66,6 +66,19 @@ body {
   line-height: 1.6;
 }
 
+.profile-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4093EF;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  text-decoration: underline;
+}
+
 /* Bento Grid */
 .bento-grid {
   display: grid;
