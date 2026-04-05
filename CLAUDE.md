@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 프로젝트 개요
 
-Bento 스타일의 개인 링크 페이지(LinkHub). 빌드 도구 없이 순수 HTML/CSS로 구성된 정적 웹페이지로, GitHub Pages로 배포된다.
+Bento 스타일의 개인 링크 페이지(LinkHub). 빌드 도구 없이 순수 HTML/CSS로 구성된 정적 웹페이지로, GitHub Pages로 배포된다. JavaScript 없음.
 
 ## 로컬 실행
 
@@ -16,13 +16,13 @@ open index.html
 
 ## 아키텍처
 
-- **index.html** — 전체 페이지를 구성하는 단일 HTML 파일. 프로필 섹션 + Bento Grid(카드 목록)로 구성
-- **style.css** — CSS Grid 기반 Bento 레이아웃, 호버 애니메이션, 반응형(모바일 428px 기준)
+- **index.html** — 단일 HTML 파일. 프로필 섹션(`header.profile`) + Bento Grid(`main.bento-grid`) 구성
+- **style.css** — CSS Grid 기반 Bento 레이아웃, 호버 애니메이션, 반응형(모바일 428px 기준). 폰트는 Inter
 - **resources/** — 이미지 리소스 (프로필, 아이콘, 프리뷰, 소셜 미디어 이미지)
 
 ## 카드 타입
 
-`index.html`의 `.bento-grid` 안에 4가지 카드 타입이 존재한다:
+`.bento-grid` 안에 4가지 카드 타입이 존재한다:
 
 | 클래스 | 용도 | 특징 |
 |---|---|---|
@@ -33,8 +33,18 @@ open index.html
 
 새 카드를 추가할 때는 기존 카드의 HTML 구조를 복사하여 사용한다.
 
+## 페이지 구조
+
+카드 배치는 두 영역으로 나뉜다:
+
+1. **활성 카드** — 현재 진행 중인 강좌/링크. 상단에 배치
+2. **`.section-divider`** — "마감된 강좌" 구분선
+3. **마감 카드** — `card-text` 타입, 제목에 `(마감)` 접두어 포함. 구분선 아래에 배치
+
+강좌가 마감되면 `card-link` → `card-text`로 변경하고 마감 섹션으로 이동한다.
+
 ## 주의사항
 
 - Instagram, Behance 아이콘은 인라인 SVG로 작성되어 있다 (이미지 파일이 아님)
-- 카드 순서가 곧 페이지 표시 순서이며, 최신/활성 강좌가 상단에 위치한다
 - `card-half` 카드 2개는 반드시 연속으로 배치해야 한 행에 나란히 표시된다
+- SNS 카드의 팔로워 수(`.follow-count`)는 수동으로 업데이트한다
