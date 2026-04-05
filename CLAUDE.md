@@ -20,6 +20,11 @@ open index.html
 - **style.css** — CSS Grid 기반 Bento 레이아웃, 호버 애니메이션, 반응형(모바일 428px 기준). 폰트는 Inter
 - **resources/** — 이미지 리소스 (프로필, 아이콘, 프리뷰, 소셜 미디어 이미지)
 
+## 페이지 구조
+
+1. **프로필 섹션** (`header.profile`) — 아바타, 이름, 바이오, 강의 이력 링크(`.profile-link`)
+2. **Bento Grid** (`main.bento-grid`) — 카드 목록. 카드 순서가 곧 페이지 표시 순서
+
 ## 카드 타입
 
 `.bento-grid` 안에 4가지 카드 타입이 존재한다:
@@ -29,19 +34,9 @@ open index.html
 | `card-link` | 외부 링크 (프리뷰 이미지 포함) | `card-full`, 좌측 아이콘+텍스트 / 우측 프리뷰 |
 | `card-simple` | 간단한 링크 | `card-half`, 아이콘+제목+서브타이틀 |
 | `card-social` | SNS 카드 (Instagram, Behance) | `card-full`, 헤더+6개 이미지 그리드 |
-| `card-text` | 텍스트 전용 (마감 강좌 등) | `card-full`, 아이콘+제목만, 높이 77px |
+| `card-text` | 텍스트 전용 | `card-full`, 아이콘+제목만, 높이 77px |
 
 새 카드를 추가할 때는 기존 카드의 HTML 구조를 복사하여 사용한다.
-
-## 페이지 구조
-
-카드 배치는 두 영역으로 나뉜다:
-
-1. **활성 카드** — 현재 진행 중인 강좌/링크. 상단에 배치
-2. **`.section-divider`** — "마감된 강좌" 구분선
-3. **마감 카드** — `card-text` 타입, 제목에 `(마감)` 접두어 포함. 구분선 아래에 배치
-
-강좌가 마감되면 `card-link` → `card-text`로 변경하고 마감 섹션으로 이동한다.
 
 ## 주의사항
 
