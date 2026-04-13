@@ -291,6 +291,60 @@ body {
   object-fit: cover;
 }
 
+/* Book Card - Animated Gradient Border & Badge */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card-book {
+  position: relative;
+  overflow: visible;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#fff, #fff), conic-gradient(from var(--border-angle), #4093EF, #9B59B6, #E74C8A, #4093EF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: fadeInUp 0.6s cubic-bezier(0.2, 1.18, 0.47, 1) forwards, rotate-border 3s linear infinite;
+}
+
+@keyframes rotate-border {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.badge-new {
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  background: linear-gradient(135deg, #4093EF, #9B59B6);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* Book Card Preview */
+.card-link .card-preview-book {
+  width: 95px;
+  height: 130px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-left: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-preview-book img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Section Divider */
 .section-divider {
   grid-column: span 2;
@@ -342,9 +396,8 @@ body {
 }
 
 .icon-threads img {
-  width: 24px;
-  height: 24px;
-  filter: invert(1);
+  width: 100%;
+  height: 100%;
 }
 
 .icon-tistory svg {
